@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Modern Web App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            text-align: center;
+        }
+        main {
+            padding: 2rem;
+        }
+        button {
+            background-color: #ff9800;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e68a00;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Modern Web Application</h1>
+    </header>
+    <main>
+        <h2>Interactive Features</h2>
+        <p>This application showcases data processing capabilities.</p>
+        <button id="executeBtn">Run Analysis</button>
+        <pre id="output"></pre>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Modern Web App</p>
+    </footer>
+    <script>
+        document.getElementById('executeBtn').addEventListener('click', function() {
+            // Simulated async process
+            fetch('result.json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(err => {
+                    document.getElementById('output').textContent = 'Error fetching data';
+                });
+        });
+    </script>
+</body>
+</html>
